@@ -1,9 +1,9 @@
 # zookeeper-client
 基于Curator ZK客户端连接工具进行简易封装，并基于事件驱动模型增强节点监听功能，使节点监听操作更加建议方便
 
-#使用示例：
-ZKClient zKClient = ZKClientBuilder.build();
+# 使用示例：
 		
+		ZKClient zKClient = ZKClientBuilder.build();
 		for(int i=0;i<100000;i++)
 			zKClient = ZKClientBuilder.build();
 		
@@ -64,3 +64,6 @@ ZKClient zKClient = ZKClientBuilder.build();
 		for(String path:pathList){
 			System.out.println("The path is ["+rootPath+path+"],The Data is ["+zKClient.getData(rootPath+path)+"].");
 		}
+
+# 具体可参考测试类：
+https://github.com/cpthack/zookeeper-client/blob/master/src/test/java/com/jiuwei/commons/zkclient/ZKClientTest.java
