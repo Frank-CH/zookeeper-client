@@ -1,7 +1,30 @@
 # zookeeper-client
 基于Curator ZK客户端连接工具进行简易封装，并基于事件驱动模型增强节点监听功能，使节点监听操作更加建议方便
 
-# 使用示例：
+## 修改ZK配置文件
+https://github.com/cpthack/zookeeper-client/blob/master/src/main/resources/zk-config.properties
+		
+		#zookeeper客户端配置文件
+		#zookeeper连接地址
+		zk.config.address=127.0.0.1:2181,127.0.0.1:2181
+
+		#zookeeper编码
+		zk.config.charset=utf-8
+
+		#zookeeper连接超时时间
+		zk.config.connectionTimeoutMs=15_000
+
+		#zookeeper的session超时时间
+		zk.config.sessionTimeoutMs=60_000
+
+		#zookeeper命名空间
+		zk.config.namespace=
+		/*
+		 * 监听节点 example
+		 */
+		zKClient.nodeWatch("/test/abc", new ZKListener() {
+	
+## 使用示例：
 		
 		ZKClient zKClient = ZKClientBuilder.build();
 		for(int i=0;i<100000;i++)
@@ -65,5 +88,5 @@
 			System.out.println("The path is ["+rootPath+path+"],The Data is ["+zKClient.getData(rootPath+path)+"].");
 		}
 
-# 具体可参考测试类：
+## 具体可参考测试类：
 https://github.com/cpthack/zookeeper-client/blob/master/src/test/java/com/jiuwei/commons/zkclient/ZKClientTest.java
